@@ -37,4 +37,18 @@ export class AppComponent implements OnInit {
 		}
 		this.appState = state;
 	}
+
+	/**
+	 *
+	 * @param event
+	 */
+	filterCategory(event) {
+		const target: HTMLElement = event.target || event.srcElement || event.currentTarget;
+
+		const selectedCategory = target.textContent.trim();
+
+		this.firebaseService.getBusinesses(selectedCategory).subscribe(businesses => {
+			this.businesses = businesses;
+		});
+	}
 }

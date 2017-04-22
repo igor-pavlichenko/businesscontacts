@@ -10,6 +10,31 @@
 </nav>
 <br>
 
+<div class="container">
+	<div class="row justify-content-between">
+
+		<div class="col-md-3">
+			<button class="btn btn-primary" type="button">Add business</button>
+		</div>
+
+		<div class="col-md-6">
+			<label>Filter category
+				<div class="btn-group" data-toggle="buttons" (click)="filterCategory($event)">
+					<label class="btn btn-outline-primary active">
+						<input type="radio" name="categories" id="none" autocomplete="off" checked>None
+					</label>
+					<label class="btn btn-outline-primary" *ngFor="let category of categories">
+						<input type="radio" name="categories" id="{{category.name}}" autocomplete="off">
+						{{category.name}}
+					</label>
+				</div>
+			</label>
+		</div>
+	</div>
+
+</div>
+
+
 <div *ngIf="appState == 'extend'" class="container">
 	<div class="row">
 		<div class="col-md-12">
