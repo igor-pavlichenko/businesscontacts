@@ -17,8 +17,19 @@ export class FirebaseService {
 		this.categories = af.database.list('/categories');
 	}
 
-	getBusinesses() {
-		this.businesses = this.af.database.list('/businesses') as FirebaseListObservable<Business[]>;
+	getBusinesses(category: string = null) {
+		if (category && category !== 'None') {
+			this.businesses = this.af.database.list('/businesses', {
+				query: {
+					// filter by category
+					orderByChild: 'category',
+					equalTo: category
+				}
+			}) as FirebaseListObservable<Business[]>;
+		} else {
+			this.businesses = this.af.database.list('/businesses') as FirebaseListObservable<Business[]>;
+		}
+
 		return this.businesses;
 	}
 
