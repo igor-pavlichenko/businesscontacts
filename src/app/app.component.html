@@ -27,8 +27,11 @@
 					<td>{{business.category}}</td>
 					<td>{{business.phone}}</td>
 					<td>
-						<button type="button" class="btn btn-sm btn-primary">More</button>
-						<button type="button" class="btn btn-sm btn-secondary">Edit</button>
+						<button class="btn btn-sm btn-primary"
+								(click)="changeState('extend', business.$key)"
+								type="button" >More</button>
+						<button class="btn btn-sm btn-secondary"
+								type="button" >Edit</button>
 						<button type="button" class="btn btn-sm btn-warning">Delete</button>
 					</td>
 				</tr>
