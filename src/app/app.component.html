@@ -14,7 +14,8 @@
 	<div class="row justify-content-between">
 
 		<div class="col-md-3">
-			<button class="btn btn-primary" type="button">Add business</button>
+			<button class="btn btn-primary" (click)="changeState('add')"
+					type="button">Add business</button>
 		</div>
 
 		<div class="col-md-6">
@@ -34,6 +35,112 @@
 
 </div>
 
+<div *ngIf="appState == 'add'" class="container">
+	<div class="col-md-12">
+		<h3>Add new business</h3>
+		<form (submit)="addBusiness(
+			company.value,
+			description.value,
+			category.value,
+			years_in_business.value,
+			street_address.value,
+			city.value,
+			state.value,
+			zipcode.value,
+			phone.value,
+			email.value)">
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Company name</label>
+						<input type="text" class="form-control" #company>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Category</label>
+						<select type="text" class="form-control" #category>
+							<option value="0">Select</option>
+							<option *ngFor="let category of categories"
+									value="{{category.name}}">{{category.name}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Phone</label>
+						<input type="text" class="form-control" #phone>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Email</label>
+						<input type="text" class="form-control" #email>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Street address</label>
+						<input type="text" class="form-control" #street_address>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>City</label>
+						<input type="text" class="form-control" #city>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>State</label>
+						<input type="text" class="form-control" #state>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Zipcode</label>
+						<input type="text" class="form-control" #zipcode>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Years in business</label>
+						<input type="number" class="form-control" #years_in_business>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Description</label>
+						<textarea class="form-control" rows="3" #description></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<input type="submit" class="float-md-right btn btn-success" value="Save business">
+					<button (click)="changeState('default')" class="float-md-right btn btn-danger mr-1" type="button">Cancel</button>
+				</div>
+			</div>
+
+
+		</form>
+	</div>
+	<br>
+</div>
 
 <div *ngIf="appState == 'extend'" class="container">
 	<div class="row">

@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 		});
 	}
 
-	changeState(state, key) {
+	changeState(state, key?) {
 		console.log('changing state to: ' + state + ' - Key: ' + (key ? key : 'empty'));
 		if (key) {
 			this.activeKey = key;
@@ -50,5 +50,39 @@ export class AppComponent implements OnInit {
 		this.firebaseService.getBusinesses(selectedCategory).subscribe(businesses => {
 			this.businesses = businesses;
 		});
+	}
+
+	addBusiness(
+		company: 			string,
+		description: 		string,
+		category: 			string,
+		years_in_business: 	number,
+		street_address: 	string,
+		city: 				string,
+		state: 				string,
+		zipcode: 			string,
+		phone: 				string,
+		email: 				string,
+	) {
+		let created_at = Date.now().toString();
+
+		let newBusiness = {
+			company: 			company,
+			description: 		description,
+			category: 			category,
+			years_in_business: 	years_in_business,
+			street_address: 	street_address,
+			city: 				city,
+			state: 				state,
+			zipcode: 			zipcode,
+			phone: 				phone,
+			email: 				email,
+			created_at:			created_at
+		};
+
+		this.firebaseService.addBusiness(newBusiness);
+
+		this.changeState('default');
+
 	}
 }
