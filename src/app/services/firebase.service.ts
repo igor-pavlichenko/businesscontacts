@@ -13,9 +13,18 @@ export class FirebaseService {
 	categories: FirebaseListObservable<Category[]>;
 
 
-	constructor(af: AngularFire) {
-		this.businesses = af.database.list('/businesses');
+	constructor(private af: AngularFire) {
 		this.categories = af.database.list('/categories');
+	}
+
+	getBusinesses() {
+		this.businesses = this.af.database.list('/businesses') as FirebaseListObservable<Business[]>;
+		return this.businesses;
+	}
+
+	getCategories() {
+		this.categories = this.af.database.list('/categories') as FirebaseListObservable<Category[]>;
+		return this.categories;
 	}
 
 }
