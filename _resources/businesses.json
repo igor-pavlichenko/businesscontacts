@@ -1,0 +1,50 @@
+[
+	{
+		"category": "Retail",
+		"city": "Milwaukee",
+		"company": "JumpXS",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		"email": "sadgfwe@phazn.cz",
+		"phone": "123-456-789",
+		"state": "Wisconsin",
+		"street_address": "856 Sheridan Terrace",
+		"years_in_business": 7,
+		"zipcode": "53234"
+	},
+	{
+		"category": "IT",
+		"city": "Delray Beach",
+		"company": "Lazz",
+		"description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+		"email": "paor@hwes.az",
+		"phone": "647-122-551",
+		"state": "Florida",
+		"street_address": "1234856 Harbort Avenue",
+		"years_in_business": 9,
+		"zipcode": "94135"
+	},
+	{
+		"category": "Health",
+		"city": "New York",
+		"company": "CareU",
+		"description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+		"email": "sadgfwe@phazn.cz",
+		"phone": "388-456-478",
+		"state": "New York",
+		"street_address": "224 Lalala Terrace",
+		"years_in_business": 3,
+		"zipcode": "10284"
+	},
+	{
+		"category": "Restaurant",
+		"city": "Atlantic City",
+		"company": "EatMore",
+		"description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+		"email": "more@foods.az",
+		"phone": "131-555-127",
+		"state": "New Jersey",
+		"street_address": "1298852 Some Avenue",
+		"years_in_business": 15,
+		"zipcode": "63148"
+	}
+]
