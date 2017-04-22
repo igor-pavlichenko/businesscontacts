@@ -1,13 +1,50 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
 	<div class="container">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-		 aria-expanded="false" aria-label="Toggle navigation">
+				aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
 		</button>
 		<a class="navbar-brand" href="#">Business contacts</a>
 
 	</div>
 </nav>
+<br>
+
+<div *ngIf="appState == 'extend'" class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<button (click)="changeState('default')"
+					class="btn btn-warning" type="button">Go back</button>
+		</div>
+	</div>
+	<br>
+
+	<div *ngFor="let business of businesses">
+		<div *ngIf="business.$key == activeKey">
+			<div class="row">
+				<div class="col-md-5 offset-md-1">
+					<h3>{{business.company}}</h3>
+					<p>Category: {{business.category}}</p>
+					<p>Years in business: {{business.years_in_business}}</p>
+					<p>{{business.description}}</p>
+				</div>
+
+				<div class="col-md-5 offset-md-1">
+					<h4>Contact info</h4>
+					<ul>
+						<li><strong>Phone:</strong> {{business.phone}}</li>
+						<li><strong>Email:</strong> {{business.email}}</li>
+						<li><strong>Street:</strong> {{business.street_address}}</li>
+						<li><strong>City:</strong> {{business.city}}</li>
+						<li><strong>State:</strong> {{business.state}}</li>
+						<li><strong>Zipcode:</strong> {{business.zipcode}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+</div>
 
 <div class="container">
 	<div *ngIf="businesses">
