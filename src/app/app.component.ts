@@ -17,6 +17,17 @@ export class AppComponent implements OnInit {
 	appState: string;
 	activeKey: string;
 
+	activeCompany: 			string;
+	activeDescription: 		string;
+	activeCategory: 		string;
+	activeYearsInBusiness: 	number;
+	activeStreetAddress: 	string;
+	activeCity: 			string;
+	activeState: 			string;
+	activeZipcode: 			string;
+	activePhone: 			string;
+	activeEmail: 			string;
+
 	constructor(private firebaseService: FirebaseService) {
 	}
 
@@ -84,5 +95,39 @@ export class AppComponent implements OnInit {
 
 		this.changeState('default');
 
+	}
+
+	showEdit(business) {
+		this.changeState('edit', business.$key);
+
+		this.activeCompany = 			business.company;
+		this.activeDescription = 		business.description;
+		this.activeCategory = 			business.category;
+		this.activeYearsInBusiness = 	business.years_in_business;
+		this.activeStreetAddress = 		business.street_address;
+		this.activeCity = 				business.city;
+		this.activeState = 				business.state;
+		this.activeZipcode = 			business.zipcode;
+		this.activePhone = 				business.phone;
+		this.activeEmail = 				business.email;
+	}
+
+	updateBusiness() {
+		let updatedBusiness = {
+			company: 			this.activeCompany,
+			description: 		this.activeDescription,
+			category: 			this.activeCategory,
+			years_in_business: 	this.activeYearsInBusiness,
+			street_address: 	this.activeStreetAddress,
+			city: 				this.activeCity,
+			state: 				this.activeState,
+			zipcode: 			this.activeZipcode,
+			phone: 				this.activePhone,
+			email: 				this.activeEmail
+		};
+
+		this.firebaseService.updateBusiness(this.activeKey, updatedBusiness);
+
+		this.changeState('default');
 	}
 }

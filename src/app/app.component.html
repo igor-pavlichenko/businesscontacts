@@ -35,6 +35,7 @@
 
 </div>
 
+<!-- ADD FORM -->
 <div *ngIf="appState == 'add'" class="container">
 	<div class="col-md-12">
 		<h3>Add new business</h3>
@@ -142,6 +143,115 @@
 	<br>
 </div>
 
+<!-- EDIT FORM -->
+<div *ngIf="appState == 'edit'" class="container">
+	<div class="col-md-12">
+		<h3>Edit new business</h3>
+		<form (submit)="updateBusiness()">
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Company name</label>
+						<input [(ngModel)]="activeCompany" name="activeCompany"
+								type="text" class="form-control"
+								#company>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Category</label>
+						<select [(ngModel)]="activeCategory" name="activeCategory"
+								type="text" class="form-control" #category>
+							<option value="0">Select</option>
+							<option *ngFor="let category of categories"
+									value="{{category.name}}">{{category.name}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Phone</label>
+						<input [(ngModel)]="activePhone" name="activePhone"
+								type="text" class="form-control" #phone>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Email</label>
+						<input [(ngModel)]="activeEmail" name="activeEmail"
+								type="text" class="form-control" #email>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Street address</label>
+						<input [(ngModel)]="activeStreetAddress" name="activeStreetAddress"
+								type="text" class="form-control" #street_address>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>City</label>
+						<input [(ngModel)]="activeCity" name="activeCity"
+								type="text" class="form-control" #city>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>State</label>
+						<input [(ngModel)]="activeState" name="activeState"
+								type="text" class="form-control" #state>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Zipcode</label>
+						<input [(ngModel)]="activeZipcode" name="activeZipcode"
+								type="text" class="form-control" #zipcode>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Years in business</label>
+						<input [(ngModel)]="activeYearsInBusiness" name="activeYearsInBusiness"
+								type="number" class="form-control" #years_in_business>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Description</label>
+						<textarea [(ngModel)]="activeDescription" name="activeDescription"
+									class="form-control" rows="3" #description></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<input type="submit" class="float-md-right btn btn-success" value="Save business">
+					<button (click)="changeState('default')" class="float-md-right btn btn-danger mr-1" type="button">Cancel</button>
+				</div>
+			</div>
+
+
+		</form>
+	</div>
+	<br>
+</div>
+
 <div *ngIf="appState == 'extend'" class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -200,6 +310,7 @@
 								(click)="changeState('extend', business.$key)"
 								type="button" >More</button>
 						<button class="btn btn-sm btn-secondary"
+								(click)="showEdit(business)"
 								type="button" >Edit</button>
 						<button type="button" class="btn btn-sm btn-warning">Delete</button>
 					</td>
