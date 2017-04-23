@@ -312,7 +312,9 @@
 						<button class="btn btn-sm btn-secondary"
 								(click)="showEdit(business)"
 								type="button" >Edit</button>
-						<button type="button" class="btn btn-sm btn-warning">Delete</button>
+						<button class="btn btn-sm btn-warning"
+								(click)="deleteBusiness(business.$key)"
+								type="button">Delete</button>
 					</td>
 				</tr>
 			</tbody>

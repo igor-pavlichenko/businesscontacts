@@ -130,4 +130,10 @@ export class AppComponent implements OnInit {
 
 		this.changeState('default');
 	}
+
+	deleteBusiness(key) {
+		this.firebaseService.deleteBusiness(key);
+
+		this.changeState('default');
+	}
 }
